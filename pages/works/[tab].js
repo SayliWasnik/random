@@ -19,10 +19,10 @@ const WorkItem = () => {
     return <ClockArc />;
   }
   if (tab === "3") {
-    return <Cluster />
+    return <Cluster />;
   }
   if (tab === "4") {
-    return <Noisy />
+    return <Noisy />;
   }
   return <div className="">Work In Progress</div>;
 };

@@ -32,9 +32,21 @@ const Cluster = () => {
 
         const dist = agent.pos.getDistance(other.pos);
 
-        if (dist > canvasWidth / 4) continue;
-        ctx.lineWidth = math.mapRange(dist, 0, canvasWidth / 4, 6, 1);
-        
+        if (dist > canvasWidth / 4) {
+          continue;
+        } else if (dist < 150 && dist >= 100) {
+          ctx.lineWidth = 1;
+        } else if (dist < 100 && dist >= 75) {
+          ctx.lineWidth = 2;
+        } else if (dist < 75 && dist >= 50) {
+          ctx.lineWidth = 3;
+        } else if (dist < 50 && dist >= 25) {
+          ctx.lineWidth = 4;
+        } else {
+          ctx.lineWidth = 6;
+        }
+        // ctx.lineWidth = math.mapRange(dist, 0, canvasWidth / 4, 6, 1);
+
         ctx.beginPath();
         ctx.moveTo(agent.pos.x, agent.pos.y);
         ctx.lineTo(other.pos.x, other.pos.y);
