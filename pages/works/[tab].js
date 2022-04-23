@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import ClockArc from "../../components/ClockArc";
+import Cluster from "../../components/Cluster";
 import Practice from "../../components/Practice";
 import SqaureGrid from "../../components/SquareGrid";
 
@@ -15,6 +16,9 @@ const WorkItem = () => {
   }
   if (tab === "2") {
     return <ClockArc />;
+  }
+  if (tab === "3") {
+    return <Cluster />
   }
   return <div className="">Work In Progress</div>;
 };

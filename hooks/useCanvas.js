@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const useCanvas = (draw, reload, options = {}) => {
+const useCanvas = (draw, reload, animate, options = {}) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -14,9 +14,11 @@ const useCanvas = (draw, reload, options = {}) => {
       draw(ctx, frameCount);
       ctx.restore();
       frameCount++;
-      requestAnimationId = frameCount;
+      if (animate) {
+        requestAnimationId = requestAnimationFrame(() => render(ctx));
+      }
     };
-    requestAnimationId = requestAnimationFrame(() => render(context));
+    render(context);
 
     return () => {
       cancelAnimationFrame(requestAnimationId);

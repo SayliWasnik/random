@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from "react";
 import useCanvas from "../../hooks/useCanvas";
 
 const Canvas = (props) => {
-  const { draw, reload, ...rest } = props;
-  const canvasRef = useCanvas(draw, reload);
+  const { draw, reload, animate, ...rest } = props;
+  const canvasRef = useCanvas(draw, reload, animate);
 
   return <canvas ref={canvasRef} {...rest} />;
 };
